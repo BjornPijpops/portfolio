@@ -1,0 +1,16 @@
+/* Design tokens: a soft slate dark theme with a teal accent and a violet secondary. */
+:root {
+  --bg: #1b1f2a;
+  --surface: #232836;
+  --surface-hover: #2a3042;
+  --text: #e4e7ef;
+  --muted: #a3abbf;
+  --accent: #5eead4;
+  --accent-2: #a78bfa;
+  --warm: #f6ad55;
+  --accent-contrast: #0f172a;
+  --border: #323950;
+  --radius: 12px;
+  --content-width: 880px;
+  color-scheme: dark;
+}

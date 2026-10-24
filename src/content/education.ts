@@ -1,0 +1,102 @@
+import type { RawEducation } from './raw';
+
+export const education: RawEducation[] = [
+  {
+    title: 'Certified Practitioner in Agile Testing (CPAT2.0)',
+    institution: 'Brightest',
+    year: 2026,
+    kind: 'certificate',
+    certificate: 'CPAT2.0/Brightest2026037487-BjornPijpopsr1.pdf',
+  },
+  {
+    title: { en: 'Basic Course AI Literacy', nl: 'Basiscursus AI-Geletterdheid' },
+    institution: {
+      en: 'Stichting Lowercase & University of Amsterdam',
+      nl: 'Stichting Lowercase & Universiteit van Amsterdam',
+    },
+    year: 2026,
+    kind: 'course',
+    certificate: 'AI/Basiscursus_AI_Geletterdheid.pdf',
+  },
+  { title: 'Stakeholder Management', institution: 'Cerios Academy', year: 2026, kind: 'course' },
+  {
+    title: 'Playwright: Web Automation Testing From Zero to Hero',
+    institution: 'Udemy',
+    year: 2025,
+    kind: 'certificate',
+    certificate: 'Playwright/Playwright - Web Automation testing from zero to hero.pdf',
+  },
+  {
+    title: 'Certified Automation Practitioner in Agile Testing (CAPT)',
+    institution: 'Brightest',
+    year: 2025,
+    kind: 'certificate',
+    certificate: 'CAPT/Brightest2025030747-BjornPijpopsr1.pdf',
+  },
+  {
+    title: 'Machine Learning A-Z: AI, Python & R',
+    institution: 'Udemy',
+    year: 2025,
+    kind: 'certificate',
+    certificate: 'Machine Learning/Machine Learning A-Z - AI, Python and R.pdf',
+  },
+  {
+    title: 'Robot Framework Test Automation: Saucelabs Integration',
+    institution: 'Udemy',
+    year: 2025,
+    kind: 'certificate',
+    certificate: 'Robot Framework/Robot Framework Test Automation - Saucelabs Integration.pdf',
+  },
+  {
+    title: 'Requirements Writing',
+    institution: 'UNSW Sydney (Coursera)',
+    year: 2024,
+    kind: 'certificate',
+    certificate: 'Requirement Writing/1719427251283.jpeg',
+  },
+  {
+    title: 'Tricentis Tosca Fundamentals (AS2)',
+    institution: 'Tricentis',
+    year: 2023,
+    kind: 'certificate',
+  },
+  {
+    title: 'Tricentis Tosca Fundamentals (AS1)',
+    institution: 'Tricentis',
+    year: 2023,
+    kind: 'certificate',
+  },
+  {
+    title: 'ISTQB Certified Tester Foundation Level: Agile Tester',
+    institution: 'Brightest',
+    year: 2022,
+    kind: 'certificate',
+    certificate: 'ISTQB - Foundation/Brightest2022015680.pdf',
+  },
+  {
+    title: 'Robot Framework Test Automation: Level 2',
+    institution: 'Udemy',
+    year: 2021,
+    kind: 'certificate',
+    certificate: 'Robot Framework/Robot Framework Test Automation - Level 2.pdf',
+  },
+  {
+    title: 'Robot Framework Test Automation: Level 1 (Selenium)',
+    institution: 'Udemy',
+    year: 2021,
+    kind: 'certificate',
+    certificate: 'Robot Framework/Robot Framework Test Automation - Level 1 (Selenium).pdf',
+  },
+  {
+    title: 'Oracle Certified Associate, Java SE8',
+    institution: 'Oracle',
+    year: 2019,
+    kind: 'certificate',
+  },
+  {
+    title: { en: 'Applied Computer Science (Bachelor)', nl: 'Toegepaste Informatica (Bachelor)' },
+    institution: 'Hogeschool PXL',
+    year: 2019,
+    kind: 'degree',
+  },
+];

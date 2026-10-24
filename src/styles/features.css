@@ -1,0 +1,342 @@
+/* Hero */
+.hero {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero__name {
+  background: linear-gradient(120deg, var(--text) 30%, var(--accent) 70%, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.hero__headline {
+  color: var(--accent);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.hero__meta {
+  color: var(--muted);
+}
+
+.hero__summary {
+  max-width: 65ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+/* Experience */
+.timeline {
+  display: grid;
+  gap: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--border);
+}
+
+.employer {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.employer::before {
+  content: '';
+  position: absolute;
+  top: 0.55rem;
+  left: calc(-1.5rem - 7px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.employer__name {
+  font-size: 1.4rem;
+}
+
+.employer__consultancy {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.employer__meta,
+.role__period {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.role {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.role__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding: 1rem 3rem 1rem 1.25rem;
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+}
+
+.role__summary::-webkit-details-marker {
+  display: none;
+}
+
+.role__summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.role[open] > .role__summary::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+.role__title {
+  font-size: 1.1rem;
+}
+
+.role__body {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0 1.25rem 1.25rem;
+}
+
+/* Projects */
+.card--project {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card--project > :not(.preview) {
+  margin-inline: 1.25rem;
+}
+
+.card--project > :last-child {
+  margin-bottom: 1.25rem;
+}
+
+.card--project .card__title {
+  margin-top: 0.25rem;
+  font-size: 1.15rem;
+}
+
+/* Pin the links to the bottom so they align across a row, whatever the text length. */
+.card .links {
+  margin-top: auto;
+}
+
+.preview {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+/* Shimmer shown until the embedded page has loaded. */
+.preview[data-loaded='false']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    color-mix(in srgb, var(--accent) 12%, transparent) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.preview__frame {
+  position: absolute;
+  inset: 0;
+}
+
+.preview iframe {
+  border: 0;
+  background: #fff;
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.preview__notice {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.preview__cta {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  color: var(--text);
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.preview:hover .preview__cta,
+.preview:focus-visible .preview__cta {
+  opacity: 1;
+}
+
+/* Education */
+.edu-timeline {
+  display: grid;
+  gap: 2rem;
+}
+
+.edu-year {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.edu-year__label {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.edu-card:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.edu-card--degree {
+  border-left-color: var(--warm);
+}
+
+.edu-card--course {
+  border-left-color: var(--accent-2);
+}
+
+.edu-card__badge {
+  justify-self: start;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.edu-card__title {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.edu-card__institution {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.edu-card__link {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.edu-card__link:hover {
+  text-decoration: underline;
+}
+
+/* Contact */
+.contact-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.contact-card .social-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--accent);
+}
+
+.contact-card__text {
+  display: grid;
+  min-width: 0;
+}
+
+.contact-card__label {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.contact-card__value {
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
