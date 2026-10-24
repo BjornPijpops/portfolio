@@ -25,3 +25,6 @@ export function totalExperienceMonths(employers: readonly Employer[], now?: Date
     .flatMap((e) => e.roles)
     .reduce((sum, role) => sum + periodInMonths(role.period, now), 0);
 }
+
+/** DOM id of an employer's entry on the experience page, used as a scroll target. */
+export const employerAnchorId = (employerId: string) => `employer-${employerId}`;

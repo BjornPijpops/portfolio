@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { employerPeriod, sortByMostRecent, totalExperienceMonths } from './employment';
+import {
+  employerAnchorId,
+  employerPeriod,
+  sortByMostRecent,
+  totalExperienceMonths,
+} from './employment';
 import type { Employer, Period } from './types';
 
 const employer = (id: string, ...periods: Period[]): Employer => ({
@@ -50,5 +55,11 @@ describe('totalExperienceMonths', () => {
       { start: '2021-01', end: '2021-06' },
     );
     expect(totalExperienceMonths([e])).toBe(18);
+  });
+});
+
+describe('employerAnchorId', () => {
+  it('prefixes the employer id', () => {
+    expect(employerAnchorId('liberty-global')).toBe('employer-liberty-global');
   });
 });

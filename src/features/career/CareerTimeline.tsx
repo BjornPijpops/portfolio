@@ -19,6 +19,7 @@ export function CareerTimeline() {
           <li key={segment.id} className="career__segment" style={{ flexGrow: segment.months }}>
             <Link
               to="/experience"
+              state={{ employerId: segment.id }}
               className="career__link"
               data-tone={index % 3}
               title={`${segment.name} · ${formatPeriod(segment.period, locale)}`}

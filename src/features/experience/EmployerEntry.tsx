@@ -1,4 +1,4 @@
-import { employerPeriod, formatPeriod, type Employer } from '../../domain';
+import { employerAnchorId, employerPeriod, formatPeriod, type Employer } from '../../domain';
 import { useLocale } from '../../i18n/LocaleContext';
 import { RoleItem } from './RoleItem';
 
@@ -7,7 +7,7 @@ export function EmployerEntry({ employer }: { employer: Employer }) {
   const { consultancy } = employer;
 
   return (
-    <li className="employer">
+    <li id={employerAnchorId(employer.id)} className="employer">
       <header className="employer__header">
         <h2 className="employer__name">{employer.name}</h2>
         {consultancy && (

@@ -219,9 +219,13 @@
   gap: 2.5rem;
   padding-left: 1.5rem;
   border-left: 2px solid var(--border);
+  /* Extra room so the last employers can also be scrolled to the top of the screen. */
+  margin-bottom: 40vh;
 }
 
 .employer {
+  /* Keeps the heading clear of the sticky header when scrolled to. */
+  scroll-margin-top: 6rem;
   position: relative;
   display: grid;
   gap: 1rem;
