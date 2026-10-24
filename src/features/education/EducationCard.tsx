@@ -1,10 +1,6 @@
+import { certificateUrl } from '../../content/assets';
 import type { Education } from '../../domain';
 import { useLocale } from '../../i18n/LocaleContext';
-
-// Files may sit in sub-folders and contain spaces: encode each path segment but keep the slashes.
-// BASE_URL keeps the link valid when the site is hosted under a sub-path.
-const certificateUrl = (file: string) =>
-  `${import.meta.env.BASE_URL}certificates/${file.split('/').map(encodeURIComponent).join('/')}`;
 
 export function EducationCard({ item }: { item: Education }) {
   const { messages } = useLocale();

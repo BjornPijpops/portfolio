@@ -22,6 +22,8 @@ export interface Profile {
   name: string;
   headline: string;
   email: string;
+  /** Path inside public/images/, shown on the home page when set. */
+  photo?: string;
   summary: string[];
   links: SocialLink[];
 }

@@ -5,18 +5,19 @@ export interface ContactMethod {
   label: string;
   value: string;
   href: string;
-  isExternal: boolean;
 }
 
+/** A full-width row linking to an external profile. */
 export function ContactCard({ method }: { method: ContactMethod }) {
-  const externalProps = method.isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
-
   return (
-    <a className="contact-card" href={method.href} {...externalProps}>
+    <a className="contact-row" href={method.href} target="_blank" rel="noopener noreferrer">
       <SocialIcon name={method.icon} />
-      <span className="contact-card__text">
-        <span className="contact-card__label">{method.label}</span>
-        <span className="contact-card__value">{method.value}</span>
+      <span className="contact-row__text">
+        <span className="contact-row__label">{method.label}</span>
+        <span className="contact-row__value">{method.value}</span>
+      </span>
+      <span className="contact-row__arrow" aria-hidden="true">
+        ↗
       </span>
     </a>
   );

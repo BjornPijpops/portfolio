@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { imageUrl } from '../../content/assets';
 import { useContent } from '../../content/ContentContext';
 import { formatDuration, totalExperienceMonths } from '../../domain';
 import { useLocale } from '../../i18n/LocaleContext';
@@ -10,7 +11,16 @@ export function Hero() {
   const duration = formatDuration(totalExperienceMonths(getEmployers()), locale);
 
   return (
-    <section className="hero" aria-label={profile.name}>
+    <section className="hero" data-has-photo={Boolean(profile.photo)} aria-label={profile.name}>
+      {profile.photo && (
+        <img
+          className="hero__photo"
+          src={imageUrl(profile.photo)}
+          alt={profile.name}
+          width="240"
+          height="240"
+        />
+      )}
       <h1 className="hero__name">{profile.name}</h1>
       <p className="hero__headline">{profile.headline}</p>
       <p className="hero__meta">{messages.hero.experienceLine(duration)}</p>

@@ -41,7 +41,7 @@ export interface Messages {
     viewCertificate: string;
     kinds: Record<Education['kind'], string>;
   };
-  contact: { title: string; intro: string; email: string };
+  contact: { title: string; intro: string; email: string; sendEmail: string; elsewhere: string };
   notFound: { title: string; body: string; back: string };
 }
 
@@ -91,8 +91,10 @@ export const messages: Record<Locale, Messages> = {
     contact: {
       title: 'Get in touch',
       intro:
-        'Have a question, a project in mind or just want to connect? Reach out through any of these channels.',
+        'Have a question, a project in mind or just want to connect? I would love to hear from you.',
       email: 'Email',
+      sendEmail: 'Send an email',
+      elsewhere: 'Or find me on',
     },
     notFound: {
       title: 'Page not found',
@@ -143,9 +145,10 @@ export const messages: Record<Locale, Messages> = {
     },
     contact: {
       title: 'Neem contact op',
-      intro:
-        'Een vraag, een project in gedachten of gewoon even connecteren? Neem contact op via een van deze kanalen.',
+      intro: 'Een vraag, een project in gedachten of gewoon even connecteren? Ik hoor het graag.',
       email: 'E-mail',
+      sendEmail: 'Stuur een e-mail',
+      elsewhere: 'Of vind me op',
     },
     notFound: {
       title: 'Pagina niet gevonden',

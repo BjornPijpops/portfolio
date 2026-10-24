@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { displayUrl } from './links';
+import { displayUrl, encodePath } from './links';
 
 describe('displayUrl', () => {
   it('strips protocol, www and trailing slash', () => {
@@ -7,5 +7,13 @@ describe('displayUrl', () => {
       'linkedin.com/in/bjorn-pijpops',
     );
     expect(displayUrl('http://example.com')).toBe('example.com');
+  });
+});
+
+describe('encodePath', () => {
+  it('encodes each segment but keeps the slashes', () => {
+    expect(encodePath('ISTQB - Foundation/cert #1.pdf')).toBe(
+      'ISTQB%20-%20Foundation/cert%20%231.pdf',
+    );
   });
 });
