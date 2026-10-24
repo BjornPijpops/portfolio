@@ -5,40 +5,71 @@
 }
 
 .hero__photo {
-  grid-area: photo;
   width: 100%;
-  max-width: 240px;
-  aspect-ratio: 1;
-  border: 2px solid var(--border);
-  border-radius: 50%;
+  max-width: 260px;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--border);
+  border-radius: 28px;
   object-fit: cover;
+  /* Keeps the face in frame when the portrait is cropped. */
+  object-position: 55% 30%;
+  box-shadow:
+    0 0 0 6px color-mix(in srgb, var(--accent) 12%, transparent),
+    0 24px 60px -12px color-mix(in srgb, var(--accent-2) 45%, transparent);
+}
+
+.hero__content {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
 }
 
 @media (min-width: 760px) {
   .hero[data-has-photo='true'] {
-    grid-template-columns: 1fr 240px;
-    grid-template-areas: none;
-    column-gap: 3rem;
-    align-items: center;
+    grid-template-columns: 1fr 260px;
+    column-gap: 3.5rem;
+    align-items: start;
+  }
+
+  /* A fixed minimum height with the buttons pinned to the bottom keeps the layout still when the language changes. */
+  .hero[data-has-photo='true'] .hero__content {
+    min-height: 35rem;
+    grid-template-rows: repeat(3, auto) repeat(3, auto) 1fr;
+  }
+
+  .hero[data-has-photo='true'] .hero__actions {
+    align-self: end;
   }
 
   .hero[data-has-photo='true'] > .hero__photo {
     grid-column: 2;
-    grid-row: 1 / span 6;
+    grid-row: 1;
+    justify-self: end;
+    margin-top: 1rem;
+    transform: rotate(2deg);
   }
 
-  .hero[data-has-photo='true'] > :not(.hero__photo) {
+  .hero[data-has-photo='true'] > .hero__content {
     grid-column: 1;
+    grid-row: 1;
   }
 }
 
+@media (max-width: 759px) {
+  .hero__photo {
+    order: -1;
+    max-width: 220px;
+  }
+}
 .hero__name {
   background: linear-gradient(120deg, var(--text) 30%, var(--accent) 70%, var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-size: clamp(2.25rem, 6vw, 3.5rem);
-  line-height: 1.1;
+  /* Extra line height and padding so background-clip text does not cut off descenders (j, p). */
+  line-height: 1.25;
+  padding-bottom: 0.1em;
 }
 
 .hero__headline {
@@ -55,11 +86,19 @@
   max-width: 65ch;
 }
 
+/* Equal-width columns so the buttons keep the same size whatever the language or label. */
 .hero__actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
   gap: 0.75rem;
   margin-top: 0.75rem;
+}
+
+.hero__actions .button {
+  padding-inline: 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* Experience */

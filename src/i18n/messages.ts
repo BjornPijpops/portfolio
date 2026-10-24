@@ -116,9 +116,9 @@ export const messages: Record<Locale, Messages> = {
     socialLabel: 'Sociale profielen',
     hero: {
       experienceLine: (duration) => `${duration} professionele ervaring`,
-      seeJourney: 'Bekijk mijn parcours',
-      exploreProjects: 'Ontdek projecten',
-      getInTouch: 'Neem contact op',
+      seeJourney: 'Bekijk mijn traject',
+      exploreProjects: 'Mijn projecten',
+      getInTouch: 'Contact',
     },
     experience: {
       title: 'Werkervaring',
