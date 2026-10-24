@@ -76,3 +76,15 @@
   margin-top: 0.5rem;
   color: var(--muted);
 }
+
+/* Narrow screens: brand and tools share the first row, the navigation gets its own row below. */
+@media (max-width: 900px) {
+  .site-header__tools {
+    order: 2;
+  }
+
+  .site-header__nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+}

@@ -30,7 +30,7 @@ export function SiteLayout() {
         <NavLink to="/" className="site-header__brand">
           {name}
         </NavLink>
-        <nav aria-label={messages.nav.label}>
+        <nav className="site-header__nav" aria-label={messages.nav.label}>
           <ul className="nav">
             {navItems.map(({ to, label, end }) => (
               <li key={to}>
