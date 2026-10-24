@@ -101,6 +101,118 @@
   white-space: nowrap;
 }
 
+/* Career at a glance */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.stat {
+  display: flex;
+  /* The label comes first in the markup (dt before dd) but the number is shown on top. */
+  flex-direction: column-reverse;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: center;
+}
+
+.stat__value {
+  margin: 0;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat__label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.career {
+  margin-top: 2.5rem;
+}
+
+.career__title {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.career__bar {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0;
+  list-style: none;
+}
+
+.career__segment {
+  flex-basis: 0;
+  min-width: 9rem;
+}
+
+.career__link {
+  display: grid;
+  height: 100%;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  color: var(--accent-contrast);
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.career__link:hover,
+.career__link:focus-visible {
+  filter: brightness(1.12);
+}
+
+.career__link[data-tone='0'] {
+  background: var(--accent);
+}
+
+.career__link[data-tone='1'] {
+  background: var(--accent-2);
+}
+
+.career__link[data-tone='2'] {
+  background: var(--warm);
+}
+
+.career__name {
+  overflow: hidden;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.career__period {
+  overflow: hidden;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .career__bar {
+    flex-direction: column;
+  }
+
+  .career__segment {
+    flex-grow: 0 !important;
+  }
+}
 /* Experience */
 .timeline {
   display: grid;

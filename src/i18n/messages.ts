@@ -18,6 +18,16 @@ export interface Messages {
     exploreProjects: string;
     getInTouch: string;
   };
+  career: {
+    stats: {
+      experience: string;
+      employers: string;
+      consultancies: string;
+      certifications: string;
+    };
+    timelineTitle: string;
+    timelineLabel: string;
+  };
   experience: {
     title: string;
     intro: string;
@@ -64,6 +74,16 @@ export const messages: Record<Locale, Messages> = {
       seeJourney: 'See my journey',
       exploreProjects: 'Explore projects',
       getInTouch: 'Get in touch',
+    },
+    career: {
+      stats: {
+        experience: 'Years of experience',
+        employers: 'Clients',
+        consultancies: 'Consultancies',
+        certifications: 'Certifications',
+      },
+      timelineTitle: 'Career at a glance',
+      timelineLabel: 'Career timeline, oldest first',
     },
     experience: {
       title: 'Work experience',
@@ -119,6 +139,16 @@ export const messages: Record<Locale, Messages> = {
       seeJourney: 'Bekijk mijn traject',
       exploreProjects: 'Mijn projecten',
       getInTouch: 'Contact',
+    },
+    career: {
+      stats: {
+        experience: 'Jaar ervaring',
+        employers: 'Klanten',
+        consultancies: 'Consultancybedrijven',
+        certifications: 'Certificaten',
+      },
+      timelineTitle: 'Mijn loopbaan in een oogopslag',
+      timelineLabel: 'Loopbaan, oudste eerst',
     },
     experience: {
       title: 'Werkervaring',
