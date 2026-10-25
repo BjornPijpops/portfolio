@@ -9,7 +9,7 @@ export function ContactPage() {
 
   return (
     <>
-      <PageHeader title={title} intro={intro} />
+      <PageHeader title={title} intro={intro} centered />
       <ContactMethods />
     </>
   );

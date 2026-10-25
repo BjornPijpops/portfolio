@@ -624,6 +624,7 @@
   display: grid;
   gap: 1rem;
   max-width: 640px;
+  margin-inline: auto;
 }
 
 .contact-primary {
