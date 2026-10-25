@@ -6,21 +6,20 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1.5rem;
-  padding: 0.9rem 1.5rem;
   background: color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
 
-.site-header__brand {
-  color: var(--text);
-  font-weight: 700;
-  text-decoration: none;
+/* Same width as the page content, so the navigation lines up with the text below it. */
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
 }
 
 .site-header__tools {
@@ -31,7 +30,6 @@
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.25rem;
 }
 
@@ -57,6 +55,9 @@
   background: var(--surface);
 }
 
+.nav__icon {
+  display: none;
+}
 .site-main {
   max-width: var(--content-width);
   margin: 0 auto;
@@ -81,85 +82,67 @@
   color: var(--muted);
 }
 
-.menu-button {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 2.25rem;
-  height: 2.25rem;
-  padding: 0 0.6rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  cursor: pointer;
-}
-
-.menu-button__bar {
-  height: 2px;
-  border-radius: 2px;
-  background: var(--text);
-  transition:
-    transform 0.2s,
-    opacity 0.2s;
-}
-
-.menu-button[aria-expanded='true'] .menu-button__bar:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.menu-button[aria-expanded='true'] .menu-button__bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-button[aria-expanded='true'] .menu-button__bar:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-/* Narrow screens: one slim bar; the navigation collapses into a dropdown under the menu button. */
-@media (max-width: 800px) {
+/*
+ * Phones: the page links become a tab bar fixed to the bottom (easy to reach with a thumb),
+ * the top bar only keeps the language switch and social links.
+ */
+@media (max-width: 700px) {
   .site-header {
-    flex-wrap: nowrap;
-    padding-block: 0.7rem;
+    /* backdrop-filter would make the fixed tab bar relative to the header instead of the screen. */
+    backdrop-filter: none;
+    background: var(--bg);
   }
 
-  .site-header__brand {
-    margin-right: auto;
+  .site-header__inner {
+    padding-block: 0.6rem;
   }
 
   .site-header__tools {
-    gap: 0.5rem;
-  }
-
-  .site-header__tools .social-links {
-    display: none;
-  }
-
-  .menu-button {
-    display: flex;
+    flex: 1;
+    justify-content: space-between;
   }
 
   .site-header__nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    display: none;
-    padding: 0.5rem 1rem 1rem;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .site-header__nav[data-open='true'] {
-    display: block;
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 10;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--border);
   }
 
   .nav {
-    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav li {
+    flex: 1;
   }
 
   .nav__link {
-    padding: 0.7rem 1rem;
-    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.55rem 0.2rem 0.5rem;
+    border-radius: 0;
+    background: transparent;
+    font-size: 0.7rem;
+  }
+
+  .nav__link.active {
+    background: transparent;
+  }
+
+  .nav__icon {
+    display: block;
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .site-main {
+    /* Room for the tab bar so the last content is not hidden behind it. */
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
   }
 }

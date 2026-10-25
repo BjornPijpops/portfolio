@@ -1,29 +1,32 @@
-import { useCallback, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { LanguageSwitch } from '../components/LanguageSwitch';
 import { SocialLinks } from '../components/SocialLinks';
 import { useContent } from '../content/ContentContext';
-import { useEscapeKey } from '../hooks/useEscapeKey';
 import { useLocale } from '../i18n/LocaleContext';
-import { MenuButton } from './MenuButton';
+import { NavIcon, type NavIconName } from './NavIcon';
 import { useRouteChangeEffects } from './useRouteChangeEffects';
 
+interface NavItem {
+  to: string;
+  label: string;
+  icon: NavIconName;
+  end?: boolean;
+}
+
 export function SiteLayout() {
-  const { name, links } = useContent().getProfile();
+  const { links } = useContent().getProfile();
   const { messages } = useLocale();
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
   useRouteChangeEffects(mainRef);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
-  useEscapeKey(menuOpen, closeMenu);
 
-  const navItems = [
-    { to: '/', label: messages.nav.home, end: true },
-    { to: '/experience', label: messages.nav.experience },
-    { to: '/projects', label: messages.nav.projects },
-    { to: '/education', label: messages.nav.education },
-    { to: '/contact', label: messages.nav.contact },
+  const navItems: NavItem[] = [
+    { to: '/', label: messages.nav.home, icon: 'home', end: true },
+    { to: '/experience', label: messages.nav.experience, icon: 'experience' },
+    { to: '/projects', label: messages.nav.projects, icon: 'projects' },
+    { to: '/education', label: messages.nav.education, icon: 'education' },
+    { to: '/contact', label: messages.nav.contact, icon: 'contact' },
   ];
 
   return (
@@ -32,35 +35,24 @@ export function SiteLayout() {
         {messages.skipToContent}
       </a>
       <header className="site-header">
-        <NavLink to="/" className="site-header__brand">
-          {name}
-        </NavLink>
-        <nav
-          id="site-nav"
-          className="site-header__nav"
-          data-open={menuOpen}
-          aria-label={messages.nav.label}
-        >
-          <ul className="nav">
-            {navItems.map(({ to, label, end }) => (
-              <li key={to}>
-                <NavLink to={to} end={end} className="nav__link" onClick={closeMenu}>
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="site-header__tools">
-          <LanguageSwitch />
-          <SocialLinks links={links} />
-          <MenuButton
-            isOpen={menuOpen}
-            controls="site-nav"
-            openLabel={messages.nav.openMenu}
-            closeLabel={messages.nav.closeMenu}
-            onToggle={() => setMenuOpen((open) => !open)}
-          />
+        <div className="site-header__inner">
+          {/* A top bar on wide screens, a fixed tab bar at the bottom on phones. */}
+          <nav className="site-header__nav" aria-label={messages.nav.label}>
+            <ul className="nav">
+              {navItems.map(({ to, label, icon, end }) => (
+                <li key={to}>
+                  <NavLink to={to} end={end} className="nav__link">
+                    <NavIcon name={icon} />
+                    <span className="nav__label">{label}</span>
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="site-header__tools">
+            <LanguageSwitch />
+            <SocialLinks links={links} />
+          </div>
         </div>
       </header>
       <main id="main-content" ref={mainRef} tabIndex={-1} className="site-main">
