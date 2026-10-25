@@ -4,6 +4,8 @@ export interface Messages {
   skipToContent: string;
   nav: {
     label: string;
+    openMenu: string;
+    closeMenu: string;
     home: string;
     experience: string;
     projects: string;
@@ -65,6 +67,8 @@ export const messages: Record<Locale, Messages> = {
     skipToContent: 'Skip to content',
     nav: {
       label: 'Main',
+      openMenu: 'Open menu',
+      closeMenu: 'Close menu',
       home: 'Home',
       experience: 'Experience',
       projects: 'Projects',
@@ -143,6 +147,8 @@ export const messages: Record<Locale, Messages> = {
     skipToContent: 'Ga naar inhoud',
     nav: {
       label: 'Hoofdmenu',
+      openMenu: 'Menu openen',
+      closeMenu: 'Menu sluiten',
       home: 'Home',
       experience: 'Ervaring',
       projects: 'Projecten',
