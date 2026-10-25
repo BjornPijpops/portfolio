@@ -11,7 +11,7 @@ export const activities: RawActivity[] = [
       nl: 'Naast mijn projectwerk coach ik collega’s en ontwerp en geef ik trainingen binnen Cerios, waarbij ik deel wat ik in de praktijk leer.',
     },
     photo: {
-      file: 'CPAT2.0.jpg',
+      file: 'CPAT2.0.webp',
       alt: {
         en: 'Bjorn giving a hands-on training session',
         nl: 'Bjorn geeft een praktische trainingssessie',

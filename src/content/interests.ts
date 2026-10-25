@@ -9,7 +9,7 @@ export const interests: RawInterest[] = [
       nl: 'Ik speel badminton en doe graag mee aan toernooien: snelle reacties, teamwork en een gezonde dosis competitie.',
     },
     photo: {
-      file: 'badminton_tournament.jpeg',
+      file: 'badminton_tournament.webp',
       alt: {
         en: 'Bjorn with a fellow player at a badminton tournament',
         nl: 'Bjorn met een medespeler op een badmintontoernooi',
@@ -24,7 +24,7 @@ export const interests: RawInterest[] = [
       nl: 'Precisieschieten met pistool en revolver. Het beloont een rustige, methodische aanpak en oog voor detail.',
     },
     photo: {
-      file: 'shooting_2.jpg',
+      file: 'shooting_2.webp',
       alt: {
         en: 'Bjorn at the shooting range next to his target',
         nl: 'Bjorn op de schietbaan naast zijn schietschijf',
@@ -39,7 +39,7 @@ export const interests: RawInterest[] = [
       nl: 'Kleiduivenschieten met het jachtgeweer in openlucht: snelle beslissingen, standvastige focus en veel oefening.',
     },
     photo: {
-      file: 'shooting_3.jpeg',
+      file: 'shooting_3.webp',
       alt: {
         en: 'Bjorn aiming a shotgun on a clay pigeon range',
         nl: 'Bjorn mikt met een jachtgeweer op een kleiduivenschietstand',
@@ -54,7 +54,7 @@ export const interests: RawInterest[] = [
       nl: 'Lange wandelingen in de natuur zijn mijn manier om mijn hoofd leeg te maken en op te laden.',
     },
     photo: {
-      file: 'nature_2.jpg',
+      file: 'nature_2.webp',
       alt: {
         en: 'Bjorn on a rock overlooking a forested valley',
         nl: 'Bjorn op een rots met uitzicht over een beboste vallei',
@@ -69,7 +69,7 @@ export const interests: RawInterest[] = [
       nl: 'Tijdens het wandelen leg ik de momenten vast die het waard zijn om even stil te staan, zoals deze zonsopgang boven de mist.',
     },
     photo: {
-      file: 'nature_1.jpeg',
+      file: 'nature_1.webp',
       alt: {
         en: 'Sunrise over a misty valley seen through the trees',
         nl: 'Zonsopgang boven een mistige vallei tussen de bomen',

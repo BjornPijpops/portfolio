@@ -4,7 +4,7 @@ export const profile: RawProfile = {
   name: 'Bjorn Pijpops',
   headline: 'Quality & Automation Engineer',
   email: 'pijpopsbjorn@hotmail.com',
-  photo: 'personal_image.jpeg',
+  photo: 'personal_image.webp',
   summary: {
     en: [
       'Driven quality and automation engineer with over seven years of experience in test automation and software development, and a bachelor in Applied Computer Science.',
