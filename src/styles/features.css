@@ -619,6 +619,113 @@
   text-decoration: underline;
 }
 
+.view-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin: -1rem 0 1.5rem;
+}
+
+.edu-compact {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Year sits in its own column, aligned with the first row of its group. */
+.edu-compact__group {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.edu-compact__group .edu-year__label {
+  padding-top: 0.85rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .edu-compact__group {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .edu-compact__group .edu-year__label {
+    padding-top: 0;
+  }
+}
+
+.edu-compact__list {
+  display: grid;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.edu-row {
+  display: grid;
+  grid-template-columns: 1fr 6.5rem 7rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-left: 3px solid var(--accent);
+  border-top: 1px solid var(--border);
+}
+
+.edu-row:first-child {
+  border-top: 0;
+}
+
+.edu-row--degree {
+  border-left-color: var(--warm);
+}
+
+.edu-row--course {
+  border-left-color: var(--accent-2);
+}
+
+.edu-row__main {
+  display: grid;
+  min-width: 0;
+}
+
+.edu-row__title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.edu-row__institution,
+.edu-row__kind {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.edu-row__link {
+  justify-self: end;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.edu-row__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .edu-row {
+    grid-template-columns: 1fr auto;
+    row-gap: 0.15rem;
+  }
+
+  .edu-row__main {
+    grid-column: 1 / -1;
+  }
+
+  .edu-row__link {
+    grid-column: 2;
+  }
+}
+
 /* Contact */
 .contact {
   display: grid;

@@ -1,24 +1,37 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { SegmentedControl } from '../../components/SegmentedControl';
 import { useContent } from '../../content/ContentContext';
 import { groupByYear } from '../../domain';
-import { EducationCard } from './EducationCard';
+import { useLocale } from '../../i18n/LocaleContext';
+import { EducationCompact } from './EducationCompact';
+import { EducationDetailed } from './EducationDetailed';
+
+type EducationView = 'detailed' | 'compact';
 
 export function EducationSection() {
   const items = useContent().getEducation();
   const groups = useMemo(() => groupByYear(items), [items]);
+  const { views } = useLocale().messages.education;
+  const [view, setView] = useState<EducationView>('detailed');
 
   return (
-    <ol className="edu-timeline">
-      {groups.map(({ year, items }) => (
-        <li key={year} className="edu-year">
-          <h2 className="edu-year__label">{year}</h2>
-          <div className="grid">
-            {items.map((item) => (
-              <EducationCard key={item.title} item={item} />
-            ))}
-          </div>
-        </li>
-      ))}
-    </ol>
+    <>
+      <div className="view-toggle">
+        <SegmentedControl
+          groupLabel={views.label}
+          value={view}
+          onChange={setView}
+          options={[
+            { value: 'detailed', label: views.detailed },
+            { value: 'compact', label: views.compact },
+          ]}
+        />
+      </div>
+      {view === 'detailed' ? (
+        <EducationDetailed groups={groups} />
+      ) : (
+        <EducationCompact groups={groups} />
+      )}
+    </>
   );
 }

@@ -51,6 +51,8 @@ export interface Messages {
     title: string;
     intro: string;
     viewCertificate: string;
+    certificateShort: string;
+    views: { label: string; detailed: string; compact: string };
     kinds: Record<Education['kind'], string>;
   };
   contact: { title: string; intro: string; email: string; sendEmail: string; elsewhere: string };
@@ -119,6 +121,8 @@ export const messages: Record<Locale, Messages> = {
       title: 'Education & certifications',
       intro: 'Formal education and the training that keeps me sharp.',
       viewCertificate: 'View certificate →',
+      certificateShort: 'Certificate ↗',
+      views: { label: 'View', detailed: 'Detailed', compact: 'Compact' },
       kinds: { degree: 'Degree', certificate: 'Certificate', course: 'Course' },
     },
     contact: {
@@ -195,6 +199,8 @@ export const messages: Record<Locale, Messages> = {
       title: 'Opleiding & certificaten',
       intro: 'Formele opleiding en de trainingen die me scherp houden.',
       viewCertificate: 'Bekijk certificaat →',
+      certificateShort: 'Certificaat ↗',
+      views: { label: 'Weergave', detailed: 'Uitgebreid', compact: 'Compact' },
       kinds: { degree: 'Diploma', certificate: 'Certificaat', course: 'Cursus' },
     },
     contact: {

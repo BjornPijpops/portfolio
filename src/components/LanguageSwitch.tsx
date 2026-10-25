@@ -1,25 +1,22 @@
 import { LOCALES } from '../domain';
 import { useLocale } from '../i18n/LocaleContext';
+import { SegmentedControl } from './SegmentedControl';
 
 export function LanguageSwitch() {
   const { locale, setLocale, messages } = useLocale();
+  const options = LOCALES.map((option) => ({
+    value: option,
+    label: option.toUpperCase(),
+    ariaLabel: messages.language.names[option],
+    lang: option,
+  }));
 
   return (
-    <div className="lang-switch" role="group" aria-label={messages.language.label}>
-      {LOCALES.map((option) => (
-        <button
-          key={option}
-          type="button"
-          lang={option}
-          className="lang-switch__button"
-          aria-pressed={option === locale}
-          aria-label={messages.language.names[option]}
-          title={messages.language.names[option]}
-          onClick={() => setLocale(option)}
-        >
-          {option.toUpperCase()}
-        </button>
-      ))}
-    </div>
+    <SegmentedControl
+      options={options}
+      value={locale}
+      onChange={setLocale}
+      groupLabel={messages.language.label}
+    />
   );
 }

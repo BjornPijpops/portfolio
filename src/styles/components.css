@@ -94,8 +94,8 @@
   background: var(--surface);
 }
 
-/* Header tools: language switch and social icons */
-.lang-switch {
+/* Segmented toggle (language, education view) and header social icons */
+.segmented {
   display: flex;
   padding: 2px;
   border: 1px solid var(--border);
@@ -103,7 +103,7 @@
   background: var(--surface);
 }
 
-.lang-switch__button {
+.segmented__button {
   padding: 0.2rem 0.65rem;
   border: 0;
   border-radius: 999px;
@@ -115,7 +115,7 @@
   cursor: pointer;
 }
 
-.lang-switch__button[aria-pressed='true'] {
+.segmented__button[aria-pressed='true'] {
   background: var(--accent);
   color: var(--accent-contrast);
 }
