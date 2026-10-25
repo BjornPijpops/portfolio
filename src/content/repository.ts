@@ -1,7 +1,25 @@
-import type { Education, Employer, Locale, Profile, Project, SkillGroup } from '../domain';
+import type {
+  Activity,
+  Education,
+  Employer,
+  Interest,
+  Locale,
+  Profile,
+  Project,
+  SkillGroup,
+} from '../domain';
+import { activities } from './activities';
 import { education } from './education';
 import { employers } from './employment';
-import { localizeEducation, localizeEmployer, localizeProfile, localizeProject } from './localize';
+import {
+  localizeActivity,
+  localizeEducation,
+  localizeEmployer,
+  localizeInterest,
+  localizeProfile,
+  localizeProject,
+} from './localize';
+import { interests } from './interests';
 import { profile } from './profile';
 import { projects } from './projects';
 import { skillGroups } from './skills';
@@ -17,6 +35,8 @@ export interface ContentRepository {
   getProjects(): Project[];
   getSkillGroups(): SkillGroup[];
   getEducation(): Education[];
+  getActivities(): Activity[];
+  getInterests(): Interest[];
 }
 
 /** Resolves all content for one locale up front, so repeated reads return stable references. */
@@ -26,6 +46,8 @@ export function createContentRepository(locale: Locale): ContentRepository {
     employers: employers.map((employer) => localizeEmployer(employer, locale)),
     projects: projects.map((project) => localizeProject(project, locale)),
     education: education.map((item) => localizeEducation(item, locale)),
+    activities: activities.map((item) => localizeActivity(item, locale)),
+    interests: interests.map((item) => localizeInterest(item, locale)),
   };
 
   return {
@@ -34,5 +56,7 @@ export function createContentRepository(locale: Locale): ContentRepository {
     getProjects: () => resolved.projects,
     getSkillGroups: () => skillGroups,
     getEducation: () => resolved.education,
+    getActivities: () => resolved.activities,
+    getInterests: () => resolved.interests,
   };
 }

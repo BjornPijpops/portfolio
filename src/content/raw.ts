@@ -1,4 +1,4 @@
-import type { Education, Employer, Profile, Project, Role } from '../domain';
+import type { Activity, Education, Interest, Employer, Profile, Project, Role } from '../domain';
 import type { Localizable } from '../domain';
 
 /** Same shape as `T`, but the listed keys may be provided per locale. */
@@ -8,4 +8,12 @@ export type RawProfile = WithLocalized<Profile, 'headline' | 'summary'>;
 export type RawRole = WithLocalized<Role, 'title' | 'context' | 'responsibilities' | 'results'>;
 export type RawEmployer = Omit<WithLocalized<Employer, 'industry'>, 'roles'> & { roles: RawRole[] };
 export type RawProject = WithLocalized<Project, 'title' | 'description'>;
+export type RawPhoto = { file: string; alt: Localizable<string> };
+export type RawActivity = Omit<
+  WithLocalized<Activity, 'title' | 'organization' | 'description'>,
+  'photo'
+> & { photo?: RawPhoto };
+export type RawInterest = Omit<WithLocalized<Interest, 'title' | 'description'>, 'photo'> & {
+  photo: RawPhoto;
+};
 export type RawEducation = WithLocalized<Education, 'title' | 'institution'>;

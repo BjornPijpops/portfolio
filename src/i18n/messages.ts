@@ -18,6 +18,8 @@ export interface Messages {
     exploreProjects: string;
     getInTouch: string;
   };
+  activities: { title: string; intro: string; topics: string };
+  interests: { title: string; intro: string };
   career: {
     stats: {
       experience: string;
@@ -74,6 +76,17 @@ export const messages: Record<Locale, Messages> = {
       seeJourney: 'See my journey',
       exploreProjects: 'Explore projects',
       getInTouch: 'Get in touch',
+    },
+    interests: {
+      title: 'Outside work',
+      intro:
+        'A bit of the person behind the work: I like activities that ask for precision and focus.',
+    },
+    activities: {
+      topics: 'Subjects',
+      title: 'Beyond the day job',
+      intro:
+        'Side tracks next to my career in test automation. They are not part of the timeline above, but they shape how I work.',
     },
     career: {
       stats: {
@@ -139,6 +152,17 @@ export const messages: Record<Locale, Messages> = {
       seeJourney: 'Bekijk mijn traject',
       exploreProjects: 'Mijn projecten',
       getInTouch: 'Contact',
+    },
+    interests: {
+      title: 'Naast het werk',
+      intro:
+        'Een beetje van de persoon achter het werk: ik hou van activiteiten die precisie en focus vragen.',
+    },
+    activities: {
+      topics: 'Vakken',
+      title: 'Naast mijn werk',
+      intro:
+        'Zijpaden naast mijn loopbaan in testautomatisering. Ze horen niet bij de tijdlijn hierboven, maar bepalen wel hoe ik werk.',
     },
     career: {
       stats: {

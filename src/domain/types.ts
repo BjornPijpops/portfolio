@@ -69,3 +69,30 @@ export interface Education {
   /** Path (sub-folders allowed) inside public/certificates/, if a copy is available. */
   certificate?: string;
 }
+
+/** Work done next to the main career (tutoring, coaching, ...). Kept apart from employment so it never counts as experience. */
+export interface Activity {
+  id: string;
+  title: string;
+  organization: string;
+  /** Only the years are shown, so the month is not important. */
+  period: Period;
+  description: string;
+  /** Optional subjects or topics, shown as tags. */
+  topics?: string[];
+  photo?: Photo;
+}
+
+/** A picture from public/images/ with a description for screen readers. */
+export interface Photo {
+  file: string;
+  alt: string;
+}
+
+/** A personal interest, shown on the home page to give the career some personality. */
+export interface Interest {
+  id: string;
+  title: string;
+  description: string;
+  photo: Photo;
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatDuration, formatPeriod, periodInMonths } from './period';
+import { formatDuration, formatPeriod, formatYears, periodInMonths } from './period';
 
 describe('periodInMonths', () => {
   it('counts both the first and last month', () => {
@@ -44,5 +44,15 @@ describe('formatDuration', () => {
 describe('formatDuration (nl)', () => {
   it('uses Dutch units', () => {
     expect(formatDuration(14, 'nl')).toBe('1 jaar 2 mnd');
+  });
+});
+
+describe('formatYears', () => {
+  it('shows only the years', () => {
+    expect(formatYears({ start: '2018-09', end: '2020-03' })).toBe('2018 \u2013 2020');
+  });
+
+  it('uses the localized label while ongoing', () => {
+    expect(formatYears({ start: '2020-01' }, 'nl')).toBe('2020 \u2013 Heden');
   });
 });

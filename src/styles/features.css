@@ -101,6 +101,76 @@
   white-space: nowrap;
 }
 
+/* Activities beside the career */
+.jump-link {
+  margin: -1.25rem 0 2rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--accent-2);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent-2);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.jump-link:hover {
+  background: color-mix(in srgb, var(--accent-2) 15%, transparent);
+}
+
+.activities {
+  /* Scroll target; the bottom margin lets the last employers also scroll to the top of the screen. */
+  scroll-margin-top: 6rem;
+  margin-bottom: 20vh;
+  padding: 2rem;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 45%, var(--border));
+  border-radius: calc(var(--radius) * 1.5);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--accent-2) 12%, var(--surface)),
+    var(--surface) 60%
+  );
+}
+
+.activities__title {
+  background: linear-gradient(120deg, var(--accent-2), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+.activities__intro {
+  margin: 0.4rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.activity {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  border-left: 3px solid var(--accent-2);
+  background: var(--bg);
+}
+
+.activity__title {
+  font-size: 1.2rem;
+}
+
+.activity__meta {
+  color: var(--accent-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .activities {
+    padding: 1.25rem;
+  }
+}
 /* Career at a glance */
 .stats {
   display: grid;
@@ -213,14 +283,87 @@
     flex-grow: 0 !important;
   }
 }
+/* Interests */
+.interests {
+  margin-top: 3.5rem;
+}
+
+.interests__title {
+  font-size: 1.4rem;
+}
+
+.interests__intro {
+  margin: 0.4rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.interests__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.interests__grid > .interest {
+  flex: 1 1 min(280px, 100%);
+  max-width: calc((100% - 2rem) / 3);
+}
+
+@media (max-width: 900px) {
+  .interests__grid > .interest {
+    max-width: calc((100% - 1rem) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .interests__grid > .interest {
+    max-width: none;
+  }
+}
+
+.interest {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.interest__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  /* Keeps the person in frame in the cropped portrait photos. */
+  object-position: 50% 30%;
+}
+
+.interest__body {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.25rem;
+}
+
+.interest__title {
+  font-size: 1.1rem;
+}
+
+.activity__photo {
+  width: calc(100% + 2.5rem);
+  max-width: none;
+  margin: -1.25rem -1.25rem 0.5rem;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  object-position: 20% 40%;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
 /* Experience */
 .timeline {
   display: grid;
   gap: 2.5rem;
   padding-left: 1.5rem;
   border-left: 2px solid var(--border);
-  /* Extra room so the last employers can also be scrolled to the top of the screen. */
-  margin-bottom: 40vh;
+  margin-bottom: 4rem;
 }
 
 .employer {

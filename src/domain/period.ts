@@ -59,3 +59,10 @@ export function formatDuration(totalMonths: number, locale: Locale = DEFAULT_LOC
   ].filter(Boolean);
   return parts.join(' ') || months(0);
 }
+
+/** A period shown as years only, e.g. "2020 – Present". */
+export function formatYears(period: Period, locale: Locale = DEFAULT_LOCALE): string {
+  const startYear = parseYearMonth(period.start).year;
+  const end = period.end ? String(parseYearMonth(period.end).year) : LABELS[locale].present;
+  return `${startYear} \u2013 ${end}`;
+}
